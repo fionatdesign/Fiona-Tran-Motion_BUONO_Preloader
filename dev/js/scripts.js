@@ -45,15 +45,14 @@ function pastaOutline(){
     
 }
 
-// function pastaSticker (){
-//     let tl = gsap.timeline();
-
-//     tl.to("#pasta", {duration: 2, rotate: 360})
-// }
 
 mainTL.add(orangeCircle(), "animate")
 .add(pastaShape(), "animate+=0.75")
-.add(pastaOutline(),"animate+=0.85")
-.to("#pasta", {transformOrigin: "center", duration: 1.5, ease: "power3.out", rotation: 180, repeat: 3})
-// .add(pastaSticker(),"animate+=1")
+.add(pastaOutline({visibility: "visible"}),"animate+=0.85")
+.to("#details", {visibility: "visible"}, "animate+=0.84")
+.to("#pasta", {transformOrigin: "center", duration: 1.25, ease: "power3.out", rotation: 180, repeat: 3},"animate+=3.5")
+
+
+
+
 ;
