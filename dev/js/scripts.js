@@ -13,7 +13,7 @@ const mainTL = gsap.timeline({id: "mainTL"});
 function orangeCircle(){
     let tl = gsap.timeline();
 
-    tl.from("#circle", {duration:2, scale: 0.5, transformOrigin:"center", ease: "elastic.out(1, 0.3)"})
+    tl.from("#circle", {duration:2, scale: 0.25, transformOrigin:"center", ease: "elastic.out(1, 0.3)"})
     ;
 
     return tl;
@@ -35,10 +35,10 @@ function pastaShape(){
 function pastaOutline(){
     let tl = gsap.timeline();
 
-    tl.from("#Vector", {duration:1, drawSVG: 0}, "outline")
-    .from("#Vector_2", {duration:1, drawSVG: 0}, "outline")
-    .from("#Vector_3", {duration:1, drawSVG: 0}, "outline")
-    .from("#Vector_4", {duration:1, drawSVG: 0}, "outline")
+    tl.from("#Vector", {duration:.75, drawSVG: 0}, "outline")
+    .from("#Vector_2", {duration:.75, drawSVG: 0}, "outline")
+    .from("#Vector_3", {duration:.75, drawSVG: 0}, "outline")
+    .from("#Vector_4", {duration:.75, drawSVG: 0}, "outline")
     ;
 
     return tl;
@@ -56,9 +56,6 @@ function loadingSign(){
     tl.to("#N", {visibility: "visible", delay: 4.5}, "loading")
     tl.to("#G", {visibility: "visible", delay: 4.7}, "loading")
     tl.to(".dot", {visibility: "visible", stagger: { each: 0.3 }, duration: 0.3, delay: 4.9, repeat: 3}, "loading")
-    // tl.to("#dot1", {visibility: "visible", delay: 4.9}, "loading")
-    // tl.to("#dot2", {visibility: "visible", delay: 5.1}, "loading")
-    // tl.to("#dot3", {visibility: "visible", delay: 5.3}, "loading")
 }
 
 
