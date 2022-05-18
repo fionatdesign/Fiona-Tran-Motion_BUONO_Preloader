@@ -24,7 +24,7 @@ function pastaShape(){
     let tl = gsap.timeline();
 
     tl.to("#outline", {visibility: "visible"})
-    .from("#outline", {duration:1, transformOrigin:"center", drawSVG: "50% 50%"})
+    .fromTo("#outline", {duration:1, transformOrigin:"center", drawSVG: "10% 10%"},{duration: 1, drawSVG: "0% 100%"})
     .from("#outline", {duration:1, fill: "#E37A30"})
     .to("#outline", {duration:1, fill:"#E3CEB0"})
 
@@ -48,14 +48,10 @@ function pastaOutline(){
 function loadingSign(){
     let tl = gsap.timeline();
 
-    tl.to("#L", {visibility: "visible", delay: 3.5}, "loading")
-    tl.to("#O", {visibility: "visible", delay: 3.7}, "loading")
-    tl.to("#A", {visibility: "visible", delay: 3.9}, "loading")
-    tl.to("#D", {visibility: "visible", delay: 4.1}, "loading")
-    tl.to("#I", {visibility: "visible", delay: 4.3}, "loading")
-    tl.to("#N", {visibility: "visible", delay: 4.5}, "loading")
-    tl.to("#G", {visibility: "visible", delay: 4.7}, "loading")
-    tl.to(".dot", {visibility: "visible", stagger: { each: 0.3 }, duration: 0.3, delay: 4.9, repeat: 3}, "loading")
+    tl.to(".loading", {visibility: "hidden", duration: 2})
+    tl.from(".loading", {y:50, skewX:30, ease: "elastic.out (2, 0.5)", visibility: "visible", stagger: {each: 0.3}})
+    tl.to(".loading", {delay: 3.5, visibility: "visible", stagger: {each: 0.3}})
+
 }
 
 
@@ -63,8 +59,9 @@ mainTL.add(orangeCircle(), "animate")
 .add(pastaShape(), "animate+=0.75")
 .add(pastaOutline({visibility: "visible"}),"animate+=0.85")
 .to("#details", {visibility: "visible"}, "animate+=0.84")
-.to("#pasta", {transformOrigin: "center", duration: 1.25, ease: "power3.out", rotation: 180, repeat: 3},"animate+=3.5")
+.to("#pasta", {transformOrigin: "center", duration: 1.25, ease: "power3.out", rotation: 180, repeat: -1},"animate+=4")
 .add(loadingSign())
-
+.to(".dot", {visibility: "hidden"})
+.to(".dot2", {visibility: "visible", stagger: { each: 0.4 }, delay: 0, repeat: -1})
 
 ;
