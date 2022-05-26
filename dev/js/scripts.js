@@ -15,6 +15,7 @@ const mainTL = gsap.timeline({id: "mainTL"});
 function orangeCircle(){
     let tl = gsap.timeline();
     tl.from("#circle", {duration:2, scale: 0.25, transformOrigin:"center", ease: "elastic.out(1, 0.3)"})
+    .to("#circle", {duration:2, scale: 1.2, transformOrigin:"center", ease: "elastic.out(1, 0.3)"})
     ;
 
     return tl;
@@ -41,8 +42,8 @@ function pastaOutline(){
     .from("#Vector_3", {duration:1.2, drawSVG: 0}, "outline")
     .from("#Vector_4", {duration:1.2, drawSVG: 0}, "outline")
     .to("#pasta", {transformOrigin: "center", duration: 1.25, delay: 1.5, rotation: 180, ease: "power4.out", repeat:-1}, "outline")
-//     .from("#pasta", {transformOrigin: "center", duration: 1.35, ease: "power4.out", delay: 4.68, rotation: -180, repeat: -1})
-//     ;
+    .from("#pasta", {transformOrigin: "center", delay: 2, ease: "back.out(1.7)", scaleY: 0.8, repeat: -1, yoyo: true}, "outline-=1")
+
 
     return tl;
     
@@ -52,10 +53,8 @@ function pastaOutline(){
 function loadingSign(){
     let tl = gsap.timeline({repeat:-1, visibility: "hidden", timeScale: 2});
 
-    tl.from(".loading", {y:40, ease: "slow(0.5, 0, false)", visibility: "visible", stagger: {each: .03}, delay: 0},"wave")
-    .to(".loading", {y:40, visibility: "visible", ease: "slow(4, 2, false)", stagger: {each: .03}, delay: 0}, "wave+=0.5")
-    // .to(".loading", {x:0, rotate: 360, visibility: "visible", ease: "slow(4, 2, false)", stagger: {each: .03}, delay: 0}, "wave+=1")
-    // .from(".loading", {x:40, visibility: "visible", ease: "slow(5, 3, false)", stagger: {each: .03}, delay: 0}, "wave+=1.1")
+    tl.from(".loading", {y:50, ease: "slow(0.5, 0, false)", visibility: "visible", stagger: {each: .03}, delay: 0},"wave")
+    .to(".loading", {y:50, visibility: "visible", ease: "slow(4, 2, false)", stagger: {each: .03}, delay: 0}, "wave+=0.5")
     .to("#dot", {visibility: "hidden"})
     .to(".dot", {delay: 0, visibility: "visible", stagger: { each: 0.4 }, repeat: -1})
 
